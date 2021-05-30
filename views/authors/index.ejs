@@ -1,0 +1,37 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+    <body>
+        <%- include("../partials/navbar.ejs") %>
+
+        <div class="blogs content">
+            <h2>All Authors</h2>
+
+            <div class="create-blog content">
+                <form action="/authors" method="GET">
+                    <input value = "<%= searchOptions.name %>" type="text" placeholder="Enter author name" name="name">
+                    <button>Search</button>
+                </form>
+            </div>
+        
+            <% if (authors.length > 0) { %>
+              <% authors.forEach(author => { %>
+                
+                <a href="/authors/<%= author.id %>">
+                <h3 class="title"><%= author.name %></h3>
+                </a>
+              <% }) %>
+            <% } else { %>
+              <p>There are no authors to display...</p>
+            <% } %>
+            
+          </div>
+
+            <!-- print all the authors -->
+
+            
+
+        <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>
