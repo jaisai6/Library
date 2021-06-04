@@ -5,7 +5,21 @@
         <%- include("./partials/navbar.ejs") %>
 
             <div class="blogs content">
-                <h2>Home page</h2>
+                <h2>Recently added</h2>
+
+                <% if (books.length > 0) { %>
+                    <% books.forEach(book => { %>
+                      
+                      <!-- Note: Add the href for the book detail page here... -->
+                      <!-- <h3 class="title"><%= book.title %></h3> -->
+                      <a href="#">
+                        <img height="150" width="100" src="<%= book.coverImagePath %>" alt="bookCover">
+                      </a>
+        
+                    <% }) %>
+                  <% } else { %>
+                    <p> <strong> There are no books to display... </strong> </p>
+                  <% } %>
             </div>
 
         <%- include("./partials/footer.ejs") %>

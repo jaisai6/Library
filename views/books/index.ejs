@@ -1,0 +1,46 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+    <body>
+        <%- include("../partials/navbar.ejs") %>
+
+        <div class="blogs content">
+            <h2>All Books</h2>
+        
+
+        <div class="create-blog content">
+            <form action="/books" method="GET">
+
+                
+                <input value="<%= searchOptions.title %>" type="text" placeholder="Enter book title" name="title">
+
+                <label for="publishedAfter">Published After</label>
+                <input value="<%= searchOptions.publishedAfter %>"  type="date" id="publishedAfter" name="publishedAfter">
+                
+                <label for="publishedBefore">Published Before</label>
+                <input value="<%= searchOptions.publishedBefore %>" type="date" id="publishedBefore" name="publishedBefore">                
+
+                <button>Search</button>
+            </form>
+        </div>
+
+        <% if (books.length > 0) { %>
+            <% books.forEach(book => { %>
+              
+              <!-- Note: Add the href for the book detail page here... -->
+              <!-- <h3 class="title"><%= book.title %></h3> -->
+              <a href="#">
+                <img height="150" width="100" src="<%= book.coverImagePath %>" alt="bookCover">
+              </a>
+
+            <% }) %>
+          <% } else { %>
+            <p> <strong> There are no books to display... </strong> </p>
+          <% } %>
+
+        </div>
+
+        <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>

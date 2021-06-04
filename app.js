@@ -4,9 +4,14 @@ if(process.env.NODE_ENV !== 'production'){
 
 // Requiring packages
 const express = require('express');
-const app = express();
+const mongoose = require('mongoose');
+
+// Requiring routers
 const indexRouter = require('./routes/index');
-const authorRouter = require('./routes/author');
+const authorRouter = require('./routes/authors');
+const bookRouter = require('./routes/books');
+
+const app = express();
 
 // Setting up template engine and static files
 app.set('view engine', 'ejs');
@@ -17,7 +22,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 // Connecting with the database
-const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then( (reuslt)=>{
         console.log('connected to the database!');
@@ -30,11 +34,12 @@ mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology:
 // Routes
 app.use('/', indexRouter);
 app.use('/authors', authorRouter);
+app.use('/books', bookRouter);
 
 
 // 404 Route
 app.use( (req,res) => {
-    res.status(404).render('404', { title: '404' });
+    res.status(404).render('404');
 });
 
 

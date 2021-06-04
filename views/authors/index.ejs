@@ -7,7 +7,7 @@
         <div class="blogs content">
             <h2>All Authors</h2>
 
-            <div class="create-blog content">
+            <div class="create-blog content search-blog">
                 <form action="/authors" method="GET">
                     <input value = "<%= searchOptions.name %>" type="text" placeholder="Enter author name" name="name">
                     <button>Search</button>
@@ -22,7 +22,7 @@
                 </a>
               <% }) %>
             <% } else { %>
-              <p>There are no authors to display...</p>
+              <p> <strong> There are no authors to display... </strong> </p>
             <% } %>
             
           </div>

@@ -7,12 +7,10 @@
         
         <div class="create-blog content">
             <form method="POST" action="/authors">
+              
               <label for="name">Author Name:</label>
-              <input type="text" id="name" name="name">
-              <!-- <label for="snippet">Blog snippet:</label>
-              <input type="text" id="snippet" name="snippet" required>
-              <label for="body">Blog body:</label>
-              <textarea id="body" name="body" required></textarea> -->
+              <input type="text" value="<%= author.name %>" id="name" name="name">
+
               <button>Submit</button>
             </form>
           </div>
