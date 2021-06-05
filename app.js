@@ -18,8 +18,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Middlewares
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+app.use(express.urlencoded({limit: '50mb', extended: true}));
+app.use(express.json({limit: '50mb'}));
 
 // Connecting with the database
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})

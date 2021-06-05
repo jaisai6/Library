@@ -96,7 +96,7 @@
       display: block;
       width: 100%;
       margin: 10px 0;
-        padding: 8px;
+      padding: 8px;
     }
     .create-blog label{
       display: block;
@@ -134,3 +134,5 @@
       font-weight: bold;
       font-size: large;
     }
+
+    /* custom styles */
