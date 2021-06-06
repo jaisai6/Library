@@ -17,9 +17,17 @@
             <% if (authors.length > 0) { %>
               <% authors.forEach(author => { %>
                 
-                <a href="/authors/<%= author.id %>">
-                <h3 class="title"><%= author.name %></h3>
-                </a>
+                
+
+                
+                  <a href="/authors/<%= author.id %>">
+                    <h3 class="title"><%= author.name %></h3>
+                  </a>
+
+                <%- include("../partials/deleteForm.ejs", {url: `/authors/${author.id}`}) %>
+
+                
+
               <% }) %>
             <% } else { %>
               <p> <strong> There are no authors to display... </strong> </p>

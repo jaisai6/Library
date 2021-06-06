@@ -58,7 +58,7 @@
     /* index styles */
     .blogs a{
       display: block;
-      margin: 40px 0;
+      margin: 35px 0;
       padding-left: 30px;
       border-left: 6px solid crimson;
     }
@@ -136,3 +136,17 @@
     }
 
     /* custom styles */
+    .btn{
+      margin-top: 20px;
+      /* margin-left: 20px; */
+      background: crimson;
+      color: white;
+      padding: 6px;
+      border: 0;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    .cancel{
+      margin-right: 20px;
+      color: crimson;
+    }

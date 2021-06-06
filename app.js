@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== 'production'){
 // Requiring packages
 const express = require('express');
 const mongoose = require('mongoose');
-
+const methodOverride = require('method-override');
 // Requiring routers
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
@@ -20,6 +20,7 @@ app.use(express.static('public'));
 // Middlewares
 app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(express.json({limit: '50mb'}));
+app.use(methodOverride('_method'));
 
 // Connecting with the database
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})

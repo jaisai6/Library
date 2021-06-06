@@ -1,0 +1,28 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+    <body>
+        <%- include("../partials/navbar.ejs") %>
+
+        <h2><%= author.name %></h2>
+
+        <a href="/authors/<%= author.id %>/edit"><button class="btn">Edit</button></a>
+        
+        <%- include("../partials/deleteForm.ejs", {url: `/authors/${author.id}`}) %>
+
+        <% if(booksByAuthor.length > 0) { %> 
+            <h2>Books by Author</h2>
+
+            <% booksByAuthor.forEach(book => { %>
+              
+                <a href="#">
+                  <img height="150" width="100" src="<%= book.coverImagePath %>" alt="bookCover">
+                </a>
+  
+              <% }) %>
+
+        <% } %> 
+        <%- include("../partials/footer.ejs") %>
+    </body>
+
+</html>
