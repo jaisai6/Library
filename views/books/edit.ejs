@@ -6,7 +6,8 @@
         <%- include("../partials/errorMessage.ejs") %>
         
         <div class="create-blog content">
-            <form method="POST" action="/books">
+            <h2>Edit Book</h2>
+            <form method="POST" action="/books/<%= book.id %>?_method=PUT">
 
               <!-- Book Title -->
               <label for="title">Title</label>
@@ -27,7 +28,7 @@
               <!-- publication date -->
               <label for="publishDate">Publish Date</label>
               <input type="date" name="publishDate" id="publishDate" 
-              value="<%= book.publishDate == null ? "" : book.publishDate.toISOString().split('T')[0] %>"
+              value="<%= book.publishDate == null ? today : book.publishDate.toISOString().split('T')[0] %>"
                %>">
 
               <!-- pageCount -->
@@ -44,7 +45,7 @@
                 <%= book.description %> 
               </textarea>
 
-              <button>Create</button>
+              <button>Update</button>
 
             </form>
           </div>
