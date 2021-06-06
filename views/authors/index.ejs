@@ -23,9 +23,6 @@
                   <a href="/authors/<%= author.id %>">
                     <h3 class="title"><%= author.name %></h3>
                   </a>
-
-                <%- include("../partials/deleteForm.ejs", {url: `/authors/${author.id}`}) %>
-
                 
 
               <% }) %>
